@@ -18,11 +18,11 @@ VS_VERSION_INFO VERSIONINFO
 			BLOCK "040904b0"
 			BEGIN
 				VALUE "CompanyName", "成都术有科技有限公司\0"
-				VALUE "FileDescription", "\0"
+				VALUE "FileDescription", "图像处理库\0"
 				VALUE "FileVersion", "3.0.0.0\0"
-				VALUE "LegalCopyright", "\0"
-				VALUE "OriginalFilename", "PythonZ-1200.exe\0"
-				VALUE "ProductName", "PythonZ-1200\0"
+				VALUE "LegalCopyright", "版权所有 (C) 成都术有科技有限公司\0"
+				VALUE "OriginalFilename", "ImageProcess.dll\0"
+				VALUE "ProductName", "ImageProcess\0"
 				VALUE "ProductVersion", "3.0.0.0\0"
 			END
 		END
