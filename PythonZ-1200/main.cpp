@@ -3,10 +3,21 @@
 #include <QSystemSemaphore>
 #include <QSharedMemory>
 #include <QMessageBox>
+#include <QTranslator>
+#include <QSettings>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    QSettings setting("setting.ini", QSettings::IniFormat);
+    QString language = setting.value("settings/language").toString();
+    QTranslator qtTranslator;
+    if (language == "cn")
+        qtTranslator.load("cn", ":/language");
+    else
+        qtTranslator.load("en", ":/language");
+    a.installTranslator(&qtTranslator);
 
 	// 创建信号量
 	QSystemSemaphore semaphore("PythonZ1200Semaphore", 1);
@@ -26,7 +37,7 @@ int main(int argc, char *argv[])
 	bool isRunning = sharedMemory.attach();
 	if (isRunning)
 	{
-		QMessageBox::warning(nullptr, QStringLiteral("提示"), QStringLiteral("已有相同的程序正在运行！"));
+        QMessageBox::warning(nullptr, QObject::tr("warnning"), QObject::tr("There is already a program running."));
 	}
 	else
 	{

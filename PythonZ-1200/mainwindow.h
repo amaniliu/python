@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
-#include "../ImageProcess/ImageProcess.h"
+#include "ImageProcess.h"
 
 namespace Ui {
 class MainWindow;

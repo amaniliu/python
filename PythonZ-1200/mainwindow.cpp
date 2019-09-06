@@ -68,14 +68,14 @@ void MainWindow::on_btn_start_clicked()
     ui->btn_start->setEnabled(false);
     start_scan();
     ui->btn_stop->setEnabled(true);
-    ui->lbl_status->setText(QStringLiteral("正在扫描(Scanning)"));
+    ui->lbl_status->setText(tr("Scanning"));
 }
 
 void MainWindow::on_btn_stop_clicked()
 {
     ui->btn_stop->setEnabled(false);
     stop_scan();
-    ui->lbl_status->setText(QStringLiteral("停止扫描(Stop)"));
+    ui->lbl_status->setText(tr("Stop"));
 }
 
 void MainWindow::on_btn_save_clicked()
@@ -85,7 +85,7 @@ void MainWindow::on_btn_save_clicked()
     {
         return;
     }
-    QString filename = QFileDialog::getSaveFileName(this, QStringLiteral("保存图像"), "", tr("BITMAP (*.bmp);;JPEG(*.jpg)"));
+    QString filename = QFileDialog::getSaveFileName(this, tr("Save Image"), "", tr("BITMAP (*.bmp);;JPEG(*.jpg)"));
     if (m_image->format() == QImage::Format_Indexed8)
     {
         for (int i = 0; i < 256; i++)
@@ -123,7 +123,7 @@ void MainWindow::on_btn_adjust_clicked()
 
 void MainWindow::on_btn_dir_clicked()
 {
-    QString dir = QFileDialog::getExistingDirectory(this, QStringLiteral("保存路径"));
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Save Path"));
 
     if (dir.isEmpty())
     {
@@ -147,7 +147,7 @@ void MainWindow::on_check_doubleExposure_stateChanged(int arg1)
 
 void MainWindow::on_hslider_optimize_valueChanged(int value)
 {
-    ui->lbl_optimize->setText(QStringLiteral("优化") + QString::number(value) + QStringLiteral("%"));
+    ui->lbl_optimize->setText(QString::number(value) + tr("%"));
 }
 
 void MainWindow::on_spin_h_edit_finished()
@@ -192,7 +192,7 @@ bool MainWindow::nativeEvent(const QByteArray& eventType, void* message, long * 
     else if (ds == removed)
     {
         close_usb();
-        ui->lbl_status->setText(QStringLiteral("设备未连接(Device is unconnected)"));
+        ui->lbl_status->setText(tr("Device is unconnected"));
         ui->btn_start->setEnabled(false);
         ui->btn_stop->setEnabled(false);
     }
@@ -204,14 +204,14 @@ void MainWindow::initUsbDevice()
     bool b = open_usb(MainWindow::callback_getPicInfo, MainWindow::callback_reciveMsg);
     if (b)
     {
-        ui->lbl_status->setText(QStringLiteral("设备已连接(Device is connected)"));
+        ui->lbl_status->setText(tr("Device is connected"));
         ui->btn_start->setEnabled(true);
         ui->btn_stop->setEnabled(false);
         ui->check_doubleExposure->setChecked(false);
     }
     else
     {
-        ui->lbl_status->setText(QStringLiteral("设备未连接(Device is unconnected)"));
+        ui->lbl_status->setText(tr("Device is unconnected"));
         ui->btn_start->setEnabled(false);
         ui->btn_stop->setEnabled(false);
     }
@@ -435,7 +435,7 @@ void MainWindow::showImage(unsigned char* buffer, long length)
         }
         else
         {
-            QMessageBox::warning(this, QStringLiteral("提示"), ui->lineEdt_dir->text() + QStringLiteral("不存在，无法保存图像。"), QMessageBox::Yes);
+            QMessageBox::warning(this, tr("warnning"), ui->lineEdt_dir->text() + tr("is non-existent."), QMessageBox::Yes);
         }
     }
 
@@ -448,7 +448,7 @@ void MainWindow::showImage(unsigned char* buffer, long length)
     ui->btn_zoomOut->setEnabled(true);
     ui->btn_adjust->setEnabled(true);
     ui->btn_original->setEnabled(true);
-    ui->lbl_status->setText(QStringLiteral("扫描完成(Finished)"));
+    ui->lbl_status->setText(tr("Finished"));
 }
 
 void MainWindow::reciveMsg(int msg)

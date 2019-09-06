@@ -8,4 +8,8 @@
         <file>resource/image/zoom_1.png</file>
         <file>resource/image/zoom_fit.png</file>
     </qresource>
+    <qresource prefix="/language">
+        <file alias="cn">python_cn.qm</file>
+        <file alias="en">python_en.qm</file>
+    </qresource>
 </RCC>

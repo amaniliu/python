@@ -52,6 +52,9 @@ RESOURCES += \
 #RC_ICONS += a.ico
 RC_FILE = version.rc
 
+TRANSLATIONS += python_en.ts \
+    python_cn.ts
+
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../bin/release/ -lImageProcess
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../bin/debug/ -lImageProcess
 
