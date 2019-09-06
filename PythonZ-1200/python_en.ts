@@ -4,221 +4,215 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.ui" line="137"/>
-        <location filename="mainwindow.ui" line="140"/>
-        <source>1:1</source>
-        <oldsource>1：1</oldsource>
-        <translation>1:1</translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="14"/>
-        <source>Holdtecs Planar Scanner v3.0.0.0</source>
-        <translation>Han-Bond One-Click Copying Version Machine v3.0.1.0</translation>
+        <source>python</source>
+        <translation type="unfinished">Han-Bond One-click Digitizer v3.1.0.0</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="22"/>
         <source>Scan</source>
-        <translation>Scan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="28"/>
         <location filename="mainwindow.ui" line="31"/>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="48"/>
         <location filename="mainwindow.ui" line="51"/>
         <location filename="mainwindow.cpp" line="78"/>
         <source>Stop</source>
-        <translation>Stop</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="68"/>
         <location filename="mainwindow.ui" line="71"/>
         <source>Save</source>
-        <translation>Save</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="91"/>
         <source>View</source>
-        <translation>View</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="97"/>
         <location filename="mainwindow.ui" line="100"/>
-        <source>ZoomIn</source>
-        <translation>ZoomIn</translation>
+        <source>Zoom In</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="117"/>
         <location filename="mainwindow.ui" line="120"/>
-        <source>ZoomOut</source>
-        <translation>ZoomOut</translation>
+        <source>Zoom Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="137"/>
+        <source>Actual Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="140"/>
+        <source>1:1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="157"/>
         <location filename="mainwindow.ui" line="160"/>
         <source>Fit Window</source>
-        <translation>Adapt to the window</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="180"/>
-        <source>Settings</source>
-        <translation>Scanning setting</translation>
+        <source>Setting</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="193"/>
         <source>Correct</source>
-        <translation>Calibration</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="200"/>
         <source>Stitch</source>
-        <translation>Joining</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="207"/>
-        <source>Double Exposure</source>
-        <translation>Double Exposure</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="218"/>
+        <location filename="mainwindow.ui" line="211"/>
         <source>Auto Save</source>
-        <translation>Auto Save</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="234"/>
+        <source>...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="241"/>
-        <source>...</source>
-        <translation>...</translation>
+        <source>BMP</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="248"/>
-        <source>BMP</source>
-        <translation>BMP</translation>
+        <source>JPG</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="255"/>
-        <source>JPG</source>
-        <translation>JPG</translation>
+        <location filename="mainwindow.ui" line="259"/>
+        <source>Contours</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="266"/>
-        <source>Find Countours</source>
-        <translation>Contour Extraction</translation>
+        <source>Black</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="273"/>
-        <source>Black</source>
-        <translation>Black</translation>
+        <source>White</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="280"/>
-        <source>White</source>
-        <translation>White</translation>
+        <source>Optimize</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="287"/>
-        <source>Optimization</source>
-        <translation>Optimize</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="301"/>
+        <location filename="mainwindow.ui" line="294"/>
         <source>0%</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="314"/>
+        <location filename="mainwindow.ui" line="307"/>
         <source>Horizontal</source>
-        <translation>Horizontal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="354"/>
+        <location filename="mainwindow.ui" line="347"/>
         <source>Vertical</source>
-        <translation>Vertical</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="399"/>
+        <source>Design</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="406"/>
-        <source>Design</source>
-        <translation>Design value</translation>
+        <source>Actual</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="413"/>
-        <source>Actual</source>
-        <translation>Actual value</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="420"/>
         <source>Ratio</source>
-        <translation>Ratio</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="71"/>
         <source>Scanning</source>
-        <oldsource>正在扫描(Scanning)</oldsource>
-        <translation>Scanning</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.cpp" line="88"/>
-        <source>BITMAP (*.bmp);;JPEG(*.jpg)</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="88"/>
         <source>Save Image</source>
-        <translation>Save Picture</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="88"/>
+        <source>BITMAP (*.bmp);;JPEG(*.jpg)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="126"/>
         <source>Save Path</source>
-        <translation>Save Path</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="150"/>
+        <location filename="mainwindow.cpp" line="138"/>
         <source>%</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="195"/>
-        <location filename="mainwindow.cpp" line="214"/>
-        <source>Device is unconnected</source>
-        <oldsource>设备未连接(Device is unconnected)</oldsource>
-        <translation>Equipment disConnected</translation>
-    </message>
-    <message>
+        <location filename="mainwindow.cpp" line="183"/>
         <location filename="mainwindow.cpp" line="207"/>
+        <source>Device is unconnected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="201"/>
         <source>Device is connected</source>
-        <oldsource>设备已连接(Device is connected)</oldsource>
-        <translation>Equipment connected</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="438"/>
+        <location filename="mainwindow.cpp" line="429"/>
         <source>warnning</source>
-        <translation>Prompt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="438"/>
+        <location filename="mainwindow.cpp" line="429"/>
         <source>is non-existent.</source>
-        <translation>is not exist,cannot save picture.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="451"/>
+        <location filename="mainwindow.cpp" line="442"/>
         <source>Finished</source>
-        <oldsource>扫描完成(Finished)</oldsource>
-        <translation>Scanning completed</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="main.cpp" line="33"/>
+        <location filename="main.cpp" line="40"/>
         <source>warnning</source>
-        <translation>Prompt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="main.cpp" line="33"/>
+        <location filename="main.cpp" line="40"/>
         <source>There is already a program running.</source>
-        <translation>There is already a program running.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
