@@ -111,6 +111,7 @@ void CorrectDialog::btn_correct()
 
 void CorrectDialog::getTextChanged(const QString& text)
 {
+	(void)text;
 	if (m_lineEdit1->text().isEmpty() || m_lineEdit2->text().isEmpty())
 	{
 		m_correct->setEnabled(false);

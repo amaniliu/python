@@ -13,7 +13,8 @@
 #define CHANNEL_NUM 6
 
 SettingDialog::SettingDialog(QWidget* parent)
-: m_image(0)
+	: QWidget(parent),
+	m_image(0)
 {
     initUi();
     initOffset();
