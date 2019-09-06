@@ -34,7 +34,6 @@ typedef void (*callback_data)(unsigned char* data, long length);
 //回调函数：设备消息调用，用于传输硬件发送的消息指令
 typedef void (*callback_message)(int msg);
 
-
 //打开设备
 //参数 callback_data [in]:处理图像扫描数据的回调函数指针
 //参数 callback_msg [in]:处理设备消息的回调函数指针。默认值为0
@@ -57,10 +56,45 @@ USB_DEVICE_API bool start_scan();
 //相关函数：start_scan
 USB_DEVICE_API bool stop_scan();
 
-//设置曝光
-//返回值：true为发送指令成功，false为失败
-//参数 twice [in]:true为双倍曝光，false为一倍曝光
-USB_DEVICE_API bool set_exposure(bool twice);
+//扫描行数上限
+//返回值：扫描图像高度,获取失败返回-1
+//相关函数：setLineCount
+USB_DEVICE_API long lineCount();
+
+//设置最大扫描图像高度
+//参数 length [in]:扫描图像高度。默认值为20000行
+//相关函数：lineCount
+USB_DEVICE_API void setLineCount(long length = 20000);
+
+//曝光时间
+//返回值：曝光时间，单位时钟数,时间换算=时钟数/8M，获取失败返回-1
+//相关函数：lineCount
+USB_DEVICE_API int exposure();
+
+//设置曝光时间
+//参数 time [in]:曝光时长，单位时钟数。时间换算=时钟数/8M
+//相关函数：exposure
+USB_DEVICE_API void set_exposure(int time);
+
+//编码器分频
+//返回值：分频数量,获取失败返回-1
+//相关函数：lineCount
+USB_DEVICE_API int encode_divide();
+
+//设置编码器分频，1分2，1分3，...1分8
+//参数 time [in]:分频数，取值范围2~8
+//相关函数：exposure
+USB_DEVICE_API void set_encode_divide(int divide);
+
+//编码器分频使能
+//返回值：true 为开，false 为关
+//相关函数：lineCount
+USB_DEVICE_API bool encode_mode();
+
+//编码器分频使能
+//参数 enable [in]:编码器类型,true为开，false为关
+//相关函数：encode_mode
+USB_DEVICE_API void set_encode_mode(bool enable);
 
 //获取设备句柄
 //返回值：设备句柄（HANLD）
@@ -87,10 +121,6 @@ USB_DEVICE_API int single_width();
 //获取通道数量
 //返回值：通道数量
 USB_DEVICE_API int count_of_channel();
-
-//设置最大扫描图像高度
-//参数 length [in]:扫描图像高度。默认值为20000行
-USB_DEVICE_API void setLineCount(long length = 20000);
 
 
 #endif

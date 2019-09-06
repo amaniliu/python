@@ -133,18 +133,6 @@ void MainWindow::on_btn_dir_clicked()
     ui->lineEdt_dir->setText(dir);
 }
 
-void MainWindow::on_check_doubleExposure_stateChanged(int arg1)
-{
-    if (arg1 == 0)
-    {
-        set_exposure(false);
-    }
-    else if(arg1 == 2)
-    {
-        set_exposure(true);
-    }
-}
-
 void MainWindow::on_hslider_optimize_valueChanged(int value)
 {
     ui->lbl_optimize->setText(QString::number(value) + tr("%"));
@@ -204,10 +192,15 @@ void MainWindow::initUsbDevice()
     bool b = open_usb(MainWindow::callback_getPicInfo, MainWindow::callback_reciveMsg);
     if (b)
     {
+		QSettings setting("setting.ini", QSettings::IniFormat);
+		set_encode_mode(setting.value("settings/encode_mode").toInt() == 0);
+		set_encode_divide(setting.value("settings/encode_divide").toInt());
+		set_exposure(setting.value("settings/encode_divide").toInt());
+		setLineCount(setting.value("settings/lineCount").toInt());
+
         ui->lbl_status->setText(tr("Device is connected"));
         ui->btn_start->setEnabled(true);
         ui->btn_stop->setEnabled(false);
-        ui->check_doubleExposure->setChecked(false);
     }
     else
     {
@@ -234,7 +227,6 @@ void MainWindow::initSettings()
     QSettings setting("setting.ini", QSettings::IniFormat);
     ui->check_correct->setChecked(setting.value("settings/correct").toBool());
     ui->check_montage->setChecked(setting.value("settings/montage").toBool());
-    ui->check_doubleExposure->setChecked(setting.value("settings/doubleExposure").toBool());
     ui->check_contour->setChecked(setting.value("settings/canny").toBool());
     ui->check_autoSave->setChecked(setting.value("settings/saveAuto").toBool());
     ui->lineEdt_dir->setText(setting.value("settings/dir").toString());
@@ -271,7 +263,6 @@ void MainWindow::saveSettings()
     QSettings setting("setting.ini", QSettings::IniFormat);
     setting.setValue("settings/correct", ui->check_correct->isChecked());
     setting.setValue("settings/montage", ui->check_montage->isChecked());
-    setting.setValue("settings/doubleExposure", ui->check_doubleExposure->isChecked());
     setting.setValue("settings/canny", ui->check_contour->isChecked());
     setting.setValue("settings/saveAuto", ui->check_autoSave->isChecked());
     setting.setValue("settings/background", ui->radio_black->isChecked());

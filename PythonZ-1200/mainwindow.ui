@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Holdtecs Planar Scanner v3.0.0.0</string>
+   <string>术有平面扫描仪v3.1.0.0</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1,0">
    <item>
@@ -19,16 +19,16 @@
      <item>
       <widget class="QGroupBox" name="groupBox">
        <property name="title">
-        <string>Scan</string>
+        <string>扫描</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <widget class="QToolButton" name="btn_start">
           <property name="toolTip">
-           <string>Start</string>
+           <string>开始</string>
           </property>
           <property name="text">
-           <string>Start</string>
+           <string>开始</string>
           </property>
           <property name="icon">
            <iconset resource="resource.qrc">
@@ -45,10 +45,10 @@
         <item>
          <widget class="QToolButton" name="btn_stop">
           <property name="toolTip">
-           <string>Stop</string>
+           <string>停止</string>
           </property>
           <property name="text">
-           <string>Stop</string>
+           <string>停止</string>
           </property>
           <property name="icon">
            <iconset resource="resource.qrc">
@@ -65,10 +65,10 @@
         <item>
          <widget class="QToolButton" name="btn_save">
           <property name="toolTip">
-           <string>Save</string>
+           <string>保存</string>
           </property>
           <property name="text">
-           <string>Save</string>
+           <string>保存</string>
           </property>
           <property name="icon">
            <iconset resource="resource.qrc">
@@ -88,16 +88,16 @@
      <item>
       <widget class="QGroupBox" name="groupBox_3">
        <property name="title">
-        <string>View</string>
+        <string>视图</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
          <widget class="QToolButton" name="btn_zoomIn">
           <property name="toolTip">
-           <string>ZoomIn</string>
+           <string>放大</string>
           </property>
           <property name="text">
-           <string>ZoomIn</string>
+           <string>放大</string>
           </property>
           <property name="icon">
            <iconset resource="resource.qrc">
@@ -114,10 +114,10 @@
         <item>
          <widget class="QToolButton" name="btn_zoomOut">
           <property name="toolTip">
-           <string>ZoomOut</string>
+           <string>缩小</string>
           </property>
           <property name="text">
-           <string>ZoomOut</string>
+           <string>缩小</string>
           </property>
           <property name="icon">
            <iconset resource="resource.qrc">
@@ -134,10 +134,10 @@
         <item>
          <widget class="QToolButton" name="btn_original">
           <property name="toolTip">
-           <string>1:1</string>
+           <string>实际大小</string>
           </property>
           <property name="text">
-           <string>1:1</string>
+           <string>1：1</string>
           </property>
           <property name="icon">
            <iconset resource="resource.qrc">
@@ -154,10 +154,10 @@
         <item>
          <widget class="QToolButton" name="btn_adjust">
           <property name="toolTip">
-           <string>Fit Window</string>
+           <string>适应窗口</string>
           </property>
           <property name="text">
-           <string>Fit Window</string>
+           <string>适应窗口</string>
           </property>
           <property name="icon">
            <iconset resource="resource.qrc">
@@ -177,7 +177,7 @@
      <item>
       <widget class="QGroupBox" name="groupBox_4">
        <property name="title">
-        <string>Settings</string>
+        <string>扫描设置</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <property name="spacing">
@@ -190,21 +190,14 @@
             <item>
              <widget class="QCheckBox" name="check_correct">
               <property name="text">
-               <string>Correct</string>
+               <string>校正</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QCheckBox" name="check_montage">
               <property name="text">
-               <string>Stitch</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="check_doubleExposure">
-              <property name="text">
-               <string>Double Exposure</string>
+               <string>拼接</string>
               </property>
              </widget>
             </item>
@@ -215,7 +208,7 @@
             <item>
              <widget class="QCheckBox" name="check_autoSave">
               <property name="text">
-               <string>Auto Save</string>
+               <string>自动保存</string>
               </property>
              </widget>
             </item>
@@ -259,32 +252,25 @@
            </layout>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="0,0,0,0,1,0">
+           <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="0,0,0,1,0">
             <item>
              <widget class="QCheckBox" name="check_contour">
               <property name="text">
-               <string>Find Countours</string>
+               <string>轮廓提取</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QRadioButton" name="radio_black">
               <property name="text">
-               <string>Black</string>
+               <string>黑底</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QRadioButton" name="radio_white">
               <property name="text">
-               <string>White</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label">
-              <property name="text">
-               <string>Optimization</string>
+               <string>白底</string>
               </property>
              </widget>
             </item>
@@ -298,7 +284,7 @@
             <item>
              <widget class="QLabel" name="lbl_optimize">
               <property name="text">
-               <string>0%</string>
+               <string>优化0%</string>
               </property>
              </widget>
             </item>
@@ -311,7 +297,7 @@
           <item row="0" column="3">
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>Horizontal</string>
+             <string>横向</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -351,7 +337,7 @@
           <item row="0" column="4">
            <widget class="QLabel" name="label_3">
             <property name="text">
-             <string>Vertical</string>
+             <string>纵向</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -403,21 +389,21 @@
           <item row="1" column="2">
            <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>Design</string>
+             <string>设计值</string>
             </property>
            </widget>
           </item>
           <item row="2" column="2">
            <widget class="QLabel" name="label_6">
             <property name="text">
-             <string>Actual</string>
+             <string>实际值</string>
             </property>
            </widget>
           </item>
           <item row="3" column="2">
            <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>Ratio</string>
+             <string>比例</string>
             </property>
            </widget>
           </item>

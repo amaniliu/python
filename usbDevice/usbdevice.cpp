@@ -11,6 +11,9 @@
 
 #define SINGLE_WIDTH
 
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+
 static std::shared_ptr<IHCamera> m_camera;
 
 static callback_data m_call_back = nullptr;
@@ -76,10 +79,64 @@ bool stop_scan()
     return false;
 }
 
-bool set_exposure(bool twice)
+int single_width()
 {
-    (void)twice;
-    return false;
+	if (m_camera.get())
+		return m_camera->get_option(Cam_Options::cam_width) / LIBUSB_CHANNELS;
+	return 0;
+}
+
+long lineCount()
+{
+	if (m_camera.get())
+		return m_camera->get_option(Cam_Options::cam_height);
+	return -1;
+}
+
+void setLineCount(long length)
+{
+	if (m_camera.get())
+		m_camera->set_option(Cam_Options::cam_height, static_cast<int>(length));
+}
+
+int exposure()
+{
+	if (m_camera.get())
+		return m_camera->get_option(Cam_Options::cam_exposure_gray);
+	return -1;
+}
+
+void set_exposure(int time)
+{
+	if (m_camera.get())
+		m_camera->set_option(Cam_Options::cam_exposure_gray, time);
+}
+
+int encode_divide()
+{
+	if (m_camera.get())
+		return m_camera->get_option(Cam_Options::cam_divide) + 2;
+	return -1;
+}
+
+void set_encode_divide(int divide)
+{
+	int div = max(2, min(divide, 8));
+	if (m_camera.get())
+		m_camera->set_option(Cam_Options::cam_divide, divide - 2);
+}
+
+bool encode_mode()
+{
+	if (m_camera.get())
+		return m_camera->get_option(Cam_Options::cam_divide_mode) == 0;
+	return false;
+}
+
+void set_encode_mode(bool enable)
+{
+	if (m_camera.get())
+		m_camera->set_option(Cam_Options::cam_divide_mode, enable ? 0 : 1);
 }
 
 bool is_scan()
@@ -89,22 +146,9 @@ bool is_scan()
 	return false;
 }
 
-int single_width()
-{
-    if (m_camera.get())
-        return m_camera->get_option(Cam_Options::cam_width) / LIBUSB_CHANNELS;
-    return 0;
-}
-
 int count_of_channel()
 {
     return LIBUSB_CHANNELS;
-}
-
-void setLineCount(long length)
-{
-    if (m_camera.get())
-        m_camera->set_option(Cam_Options::cam_height, static_cast<int>(length));
 }
 
 Device_Status device_status(unsigned int msg, unsigned int wparam, void* lparam)

@@ -32,8 +32,6 @@ private slots:
 
     void on_btn_original_clicked();
 
-    void on_check_doubleExposure_stateChanged(int arg1);
-
     void on_hslider_optimize_valueChanged(int value);
 
     void on_btn_dir_clicked();
