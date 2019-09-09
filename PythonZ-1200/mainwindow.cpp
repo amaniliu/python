@@ -443,12 +443,12 @@ void MainWindow::showImage(unsigned char* buffer, long length)
 }
 
 void MainWindow::reciveMsg(int msg)
-{	if (msg == 0)
+{	
+	if (msg == 1)
     {
-        on_btn_start_clicked();
-    }
-    else if (msg == 1)
-    {
-        on_btn_stop_clicked();
+		if (is_scan())
+			on_btn_stop_clicked();
+		else
+			on_btn_start_clicked();
     }
 }

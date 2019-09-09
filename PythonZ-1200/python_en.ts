@@ -6,7 +6,7 @@
     <message>
         <location filename="mainwindow.ui" line="14"/>
         <source>python</source>
-        <translation>Holtecs PythonZ-1200 v3.1.0.0</translation>
+        <translation>Holtecs PythonZ-1200 v3.1.0.2</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="22"/>
