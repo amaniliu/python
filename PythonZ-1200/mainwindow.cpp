@@ -195,7 +195,7 @@ void MainWindow::initUsbDevice()
 		QSettings setting("setting.ini", QSettings::IniFormat);
 		set_encode_mode(setting.value("settings/encode_mode").toInt() == 0);
 		set_encode_divide(setting.value("settings/encode_divide").toInt());
-		set_exposure(setting.value("settings/encode_divide").toInt());
+		set_exposure(setting.value("settings/exposure").toInt());
 		setLineCount(setting.value("settings/lineCount").toInt());
 
         ui->lbl_status->setText(tr("Device is connected"));
