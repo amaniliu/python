@@ -6,7 +6,7 @@
     <message>
         <location filename="mainwindow.ui" line="14"/>
         <source>python</source>
-        <translation>Han-Bond One-click Digitizer v3.1.0.1</translation>
+        <translation>Han-Bond One-click Digitizer v3.1.0.2</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="22"/>
@@ -24,7 +24,7 @@
         <location filename="mainwindow.ui" line="51"/>
         <location filename="mainwindow.cpp" line="78"/>
         <source>Stop</source>
-        <translation></translation>
+        <translation>Stop Scanning</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="68"/>
@@ -41,49 +41,49 @@
         <location filename="mainwindow.ui" line="97"/>
         <location filename="mainwindow.ui" line="100"/>
         <source>Zoom In</source>
-        <translation></translation>
+        <translation>Zoom in</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="117"/>
         <location filename="mainwindow.ui" line="120"/>
         <source>Zoom Out</source>
-        <translation></translation>
+        <translation>Zoom out</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="137"/>
         <source>Actual Size</source>
-        <translation></translation>
+        <translation>Zoom Fit</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="140"/>
         <source>1:1</source>
-        <translation></translation>
+        <translation>Zoom 1:1</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="157"/>
         <location filename="mainwindow.ui" line="160"/>
         <source>Fit Window</source>
-        <translation></translation>
+        <translation>Zoom Fit</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="180"/>
         <source>Setting</source>
-        <translation></translation>
+        <translation>Setting</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="193"/>
         <source>Correct</source>
-        <translation></translation>
+        <translation>calibration</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="200"/>
         <source>Stitch</source>
-        <translation></translation>
+        <translation>Join</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="211"/>
         <source>Auto Save</source>
-        <translation></translation>
+        <translation>Autosave</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="234"/>
@@ -103,22 +103,22 @@
     <message>
         <location filename="mainwindow.ui" line="259"/>
         <source>Contours</source>
-        <translation></translation>
+        <translation>Outline Extraction</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="266"/>
         <source>Black</source>
-        <translation></translation>
+        <translation>Black Background</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="273"/>
         <source>White</source>
-        <translation></translation>
+        <translation>White Background</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="280"/>
         <source>Optimize</source>
-        <translation></translation>
+        <translation>Optimization</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="294"/>
@@ -138,17 +138,17 @@
     <message>
         <location filename="mainwindow.ui" line="399"/>
         <source>Design</source>
-        <translation></translation>
+        <translation>Design Size</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="406"/>
         <source>Actual</source>
-        <translation></translation>
+        <translation>Actual Size</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="413"/>
         <source>Ratio</source>
-        <translation></translation>
+        <translation>Scale</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="71"/>
@@ -179,12 +179,12 @@
         <location filename="mainwindow.cpp" line="183"/>
         <location filename="mainwindow.cpp" line="207"/>
         <source>Device is unconnected</source>
-        <translation></translation>
+        <translation>Divice Not Connected</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="201"/>
         <source>Device is connected</source>
-        <translation></translation>
+        <translation>Device Connected</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="429"/>
@@ -194,12 +194,12 @@
     <message>
         <location filename="mainwindow.cpp" line="429"/>
         <source>is non-existent.</source>
-        <translation></translation>
+        <translation>No image can be saved</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="442"/>
         <source>Finished</source>
-        <translation></translation>
+        <translation>Scan Completed</translation>
     </message>
 </context>
 <context>

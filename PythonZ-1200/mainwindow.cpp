@@ -212,7 +212,10 @@ void MainWindow::initUsbDevice()
 
 void MainWindow::initUI()
 {
+	QPalette palette = this->palette();
+	palette.setColor(QPalette::Background, QColor(60, 60, 60));
 	ui->view->setScroll(ui->horizontalScrollBar, ui->verticalScrollBar);
+	this->setPalette(palette);
     connect(ui->spin_plan_h, SIGNAL(editingFinished()), this, SLOT(on_spin_h_edit_finished()));
     connect(ui->spin_actual_h, SIGNAL(editingFinished()), this, SLOT(on_spin_h_edit_finished()));
     connect(ui->spin_plan_v, SIGNAL(editingFinished()), this, SLOT(on_spin_v_edit_finished()));

@@ -174,6 +174,10 @@ void View::mouseReleaseEvent(QMouseEvent* e)
 
 void View::paintEvent(QPaintEvent* e)
 {
+	QPainter painter(this);
+	painter.setBrush(QColor(90, 90, 90));
+	painter.drawRect(this->rect());
+
 	QWidget::paintEvent(e);
 	if (m_image == nullptr)
 	{
