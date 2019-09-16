@@ -6,7 +6,7 @@
     <message>
         <location filename="mainwindow.ui" line="14"/>
         <source>python</source>
-        <translation>汉邦一键抄版机 v3.1.0.1</translation>
+        <translation>汉邦一键抄版机 v3.1.0.3</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="22"/>

@@ -6,7 +6,7 @@
     <message>
         <location filename="mainwindow.ui" line="14"/>
         <source>python</source>
-        <translation>Han-Bond One-click Digitizer v3.1.0.2</translation>
+        <translation>Han-Bond One-click Digitizer v3.1.0.3</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="22"/>
