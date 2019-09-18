@@ -6,7 +6,7 @@
     <message>
         <location filename="mainwindow.ui" line="14"/>
         <source>python</source>
-        <translation>术有科技PythonZ-1200 v3.1.0.2</translation>
+        <translation>自动化读图仪 v3.1.0.2</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="22"/>
