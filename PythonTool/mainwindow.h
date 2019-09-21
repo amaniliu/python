@@ -35,7 +35,11 @@ private:
 
     void h_offset(bool isLeft, int offset);
 
-    void v_offset(bool isLeft, int offset);
+    void v_offset(bool isLeft, int offset);	
+	
+	void getCorrectData(unsigned char* src, int width, int height, unsigned char* dst);
+	
+	void saveCorrectData(const QString& filename, const char* black, const char* white, int length = SIGNGLE_WIDTH * CHANNEL_NUM);
 
 private slots:
     void on_btn_open_clicked();

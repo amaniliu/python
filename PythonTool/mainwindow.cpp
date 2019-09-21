@@ -47,8 +47,7 @@ void MainWindow::initOffset()
 
 void MainWindow::updateImage()
 {
-    if (m_image == nullptr)
-        return;
+    if (m_image == nullptr) return;
 
     int index = ui->comboBox_gap->currentIndex();
     int w = static_cast<int>(SIGNGLE_WIDTH * 2 - m_offset[index].m_right - m_offset[index + 1].m_left);
@@ -229,105 +228,168 @@ void MainWindow::on_btn_export_clicked()
 void MainWindow::on_comboBox_gap_currentIndexChanged(int index)
 {
     (void)index;
-    if (!m_image)
-    {
-        return;
-    }
+    if (!m_image) return;
 
     updateImage();
 }
 
 void MainWindow::on_btn_l_l_clicked()
 {
-
+	if (m_image == nullptr) return;
+	h_offset(true, -1);
 }
 
 void MainWindow::on_btn_l_ll_clicked()
 {
-
+	if (m_image == nullptr) return;
+	h_offset(true, -10);
 }
 
 void MainWindow::on_btn_l_r_clicked()
 {
-
+	if (m_image == nullptr) return;
+	h_offset(true, 1);
 }
 
 void MainWindow::on_btn_l_rr_clicked()
 {
-
+	if (m_image == nullptr) return;
+	h_offset(true, 10);
 }
 
 void MainWindow::on_btn_l_u_clicked()
 {
-
+	if (m_image == nullptr) return;
+	v_offset(true, 1);
 }
 
 void MainWindow::on_btn_l_uu_clicked()
 {
-
+	if (m_image == nullptr) return;
+	v_offset(true, 10);
 }
 
 void MainWindow::on_btn_l_d_clicked()
 {
-
+	if (m_image == nullptr) return;
+	v_offset(true, -1);
 }
 
 void MainWindow::on_btn_l_dd_clicked()
 {
-
+	if (m_image == nullptr) return;
+	v_offset(true, -10);
 }
 
 void MainWindow::on_btn_r_l_clicked()
 {
-
+	if (m_image == nullptr) return;
+	h_offset(false, 1);
 }
 
 void MainWindow::on_btn_r_ll_clicked()
 {
-
+	if (m_image == nullptr) return;
+	h_offset(false, 10);
 }
 
 void MainWindow::on_btn_r_r_clicked()
 {
-
+	if (m_image == nullptr) return;
+	h_offset(false, -1);
 }
 
 void MainWindow::on_btn_r_rr_clicked()
 {
-
+	if (m_image == nullptr) return;
+	h_offset(false, -10);
 }
 
 void MainWindow::on_btn_r_u_clicked()
 {
-
+	if (m_image == nullptr) return;
+	v_offset(false, 1);
 }
 
 void MainWindow::on_btn_r_uu_clicked()
 {
-
+	if (m_image == nullptr) return;
+	v_offset(false, 10);
 }
 
 void MainWindow::on_btn_r_d_clicked()
 {
-
+	if (m_image == nullptr) return;
+	v_offset(false, -1);
 }
 
 void MainWindow::on_btn_r_dd_clicked()
 {
-
+	if (m_image == nullptr) return;
+	v_offset(false, -10);
 }
 
 void MainWindow::on_btn_dir_black_clicked()
 {
+	QString filename = QFileDialog::getOpenFileName(this, QStringLiteral("打开图像(Open File)"), "", QStringLiteral("Images (*.bmp)"));
+	if (filename.isEmpty()) return;
 
+	ui->lineEdit1->setText(filename);
 }
 
 void MainWindow::on_btn_path_white_clicked()
 {
+	QString filename = QFileDialog::getOpenFileName(this, QStringLiteral("打开图像(Open File)"), "", QStringLiteral("Images (*.bmp)"));
+	if (filename.isEmpty()) return;
 
+	ui->lineEdit2->setText(filename);
 }
 
 void MainWindow::on_btn_export_correct_clicked()
 {
+	QImage img1(ui->lineEdit1->text());
+	QImage img2(ui->lineEdit2->text());
 
+	if (img1.width() != SIGNGLE_WIDTH * CHANNEL_NUM || img2.width() != SIGNGLE_WIDTH * CHANNEL_NUM)
+	{
+		QMessageBox::warning(this, QStringLiteral("提示(warninng)"), QStringLiteral("图像宽度不为") + QString::number(SIGNGLE_WIDTH * CHANNEL_NUM) + QStringLiteral("，请重新选择图像"));
+		return;
+	}
+
+	unsigned char* black = new unsigned char[img1.width()];
+	unsigned char* white = new unsigned char[img2.width()];
+
+	getCorrectData(img1.bits(), img1.width(), img1.height(), black);
+	getCorrectData(img2.bits(), img2.width(), img2.height(), white);
+
+	saveCorrectData("correctData.dat", reinterpret_cast<const char*>(black), reinterpret_cast<const char*>(white));
+
+	QMessageBox::information(0, QStringLiteral("提示"), QStringLiteral("数据导出完成"));
+
+	delete[] black;
+	delete[] white;
+}
+
+void MainWindow::getCorrectData(unsigned char* src, int width, int height, unsigned char* dst)
+{
+	for (int x = 0; x < width; x++)
+	{
+		long total = 0;
+		for (int y = 0; y < height; y++)
+		{
+			total += src[y * width + x];
+		}
+		dst[x] = total / height;
+	}
+}
+
+void MainWindow::saveCorrectData(const QString& filename, const char* black, const char* white, int length)
+{
+	QFile file(filename);
+	file.open(QIODevice::WriteOnly);
+
+	QDataStream out(&file);
+	out.writeBytes(black, length);
+	out.writeBytes(white, length);
+	file.close();
 }

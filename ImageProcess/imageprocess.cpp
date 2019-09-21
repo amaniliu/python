@@ -308,6 +308,20 @@ void ImageProcess::setCorrectData(unsigned char* black, unsigned char* white, in
 		{
 			for (size_t k = 0; k < LUT_CHANNELS; k++)
 			{
+				//³ýºÚ±ß
+				if (ptr_black[k] == 0 && ptr_white[k] == 0)
+				{
+					ptr_buffer[j * LUT_CHANNELS + k] = 255;
+					continue;
+				}
+
+				//³ý°×±ß
+				if (ptr_black[k] == 255 && ptr_white[k] == 255)
+				{
+					ptr_buffer[j * LUT_CHANNELS + k] = 0;
+					continue;
+				}
+
 				if (ptr_black[k] >= ptr_white[k])
 				{
 					ptr_buffer[j * LUT_CHANNELS + k] = 0;
