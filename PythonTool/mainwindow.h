@@ -2,18 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
+#include "../ImageProcess/imageprocess.h"
 
 #define SIGNGLE_WIDTH 1272
 #define CHANNEL_NUM 6
 
 class QImage;
 
-struct PixelOffset
-{
-    int m_top;
-    int m_left;
-    int m_right;
-};
 namespace Ui {
 class MainWindow;
 }
@@ -37,14 +32,16 @@ private:
 
     void v_offset(bool isLeft, int offset);	
 	
-	void getCorrectData(unsigned char* src, int width, int height, unsigned char* dst);
+    void getCorrectData(uchar* src, int width, int height, uchar *dst);
 	
-	void saveCorrectData(const QString& filename, const char* black, const char* white, int length = SIGNGLE_WIDTH * CHANNEL_NUM);
+    void saveCorrectData(const QString& filename, const char* black, const char* white, size_t length = SIGNGLE_WIDTH * CHANNEL_NUM);
 
 private slots:
     void on_btn_open_clicked();
 
     void on_btn_import_clicked();
+
+	void on_btn_preview_clicked();
 
     void on_btn_export_clicked();
 

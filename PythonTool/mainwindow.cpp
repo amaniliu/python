@@ -1,6 +1,7 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "previewdialog.h"
 #include <QFileDialog>
 #include <QGraphicsScene>
 #include <QScrollBar>
@@ -58,11 +59,11 @@ void MainWindow::updateImage()
     int w_l = static_cast<int>(SIGNGLE_WIDTH - m_offset[index].m_right);
     int w_r = static_cast<int>(SIGNGLE_WIDTH - m_offset[index + 1].m_left);
 
-    unsigned char* data = new unsigned char[static_cast<size_t>(w * h)];
-    unsigned char* src_ptr1 = m_image->bits() + index * SIGNGLE_WIDTH;
-    unsigned char* src_ptr2 = m_image->bits() + (index + 1) * SIGNGLE_WIDTH + m_offset[index + 1].m_left;
-    unsigned char* dst_ptr1;
-    unsigned char* dst_ptr2;
+    uchar* data = new uchar[static_cast<size_t>(w * h)];
+    uchar* src_ptr1 = m_image->bits() + index * SIGNGLE_WIDTH;
+    uchar* src_ptr2 = m_image->bits() + (index + 1) * SIGNGLE_WIDTH + m_offset[index + 1].m_left;
+    uchar* dst_ptr1;
+    uchar* dst_ptr2;
     if (m_offset[index].m_top > m_offset[index + 1].m_top)
     {
         dst_ptr1 = data;
@@ -212,6 +213,19 @@ void MainWindow::on_btn_import_clicked()
     updateImage();
 }
 
+void MainWindow::on_btn_preview_clicked()
+{
+    if (m_image == nullptr) return;
+
+    ImageProcess process(m_image->bits(), m_image->width(), m_image->height());
+    ImageProcess montage;
+    process.montage(m_offset, montage);
+
+    QImage dst(montage.bits(), montage.width(), montage.height(), QImage::Format_Grayscale8);
+    PreviewDialog dialog(&dst, this);
+    dialog.exec();
+}
+
 void MainWindow::on_btn_export_clicked()
 {
     QSettings setting("config.ini", QSettings::IniFormat);
@@ -350,27 +364,55 @@ void MainWindow::on_btn_export_correct_clicked()
 	QImage img1(ui->lineEdit1->text());
 	QImage img2(ui->lineEdit2->text());
 
-	if (img1.width() != SIGNGLE_WIDTH * CHANNEL_NUM || img2.width() != SIGNGLE_WIDTH * CHANNEL_NUM)
+    const size_t length = static_cast<size_t>(SIGNGLE_WIDTH * CHANNEL_NUM);
+    if (img1.width() != length || img2.width() != length)
 	{
-		QMessageBox::warning(this, QStringLiteral("提示(warninng)"), QStringLiteral("图像宽度不为") + QString::number(SIGNGLE_WIDTH * CHANNEL_NUM) + QStringLiteral("，请重新选择图像"));
+        QMessageBox::warning(this, QStringLiteral("提示(warninng)"), QStringLiteral("图像宽度不为") + QString::number(length) + QStringLiteral("，请重新选择图像"));
 		return;
 	}
 
-	unsigned char* black = new unsigned char[img1.width()];
-	unsigned char* white = new unsigned char[img2.width()];
+    uchar* black = new uchar[static_cast<size_t>(img1.width())];
+    uchar* white = new uchar[static_cast<size_t>(img2.width())];
 
 	getCorrectData(img1.bits(), img1.width(), img1.height(), black);
 	getCorrectData(img2.bits(), img2.width(), img2.height(), white);
 
+    int aver_black = 0, aver_white = 0;
+    for (size_t i = 0; i < length; ++i)
+    {
+        aver_black += black[i];
+        aver_white += white[i];
+    }
+    aver_black /= length;
+    aver_white /= length;
+
+    if (ui->checkBox_black->isChecked())
+    {
+        uchar half_aver_white = static_cast<uchar>(aver_white / 2);
+
+        for (size_t i = 0; i < length; ++i)
+            if (white[i] < half_aver_white)
+                white[i] = black[i] = 0;
+    }
+
+    if (ui->checkBox_white->isChecked())
+    {
+        uchar half_aver_black = static_cast<uchar>(aver_black / 2);
+
+        for (size_t i = 0; i < length; ++i)
+            if (white[i] < half_aver_white)
+                white[i] = black[i] = 0;
+    }
+
 	saveCorrectData("correctData.dat", reinterpret_cast<const char*>(black), reinterpret_cast<const char*>(white));
 
-	QMessageBox::information(0, QStringLiteral("提示"), QStringLiteral("数据导出完成"));
+    QMessageBox::information(this, QStringLiteral("提示"), QStringLiteral("数据导出完成"));
 
 	delete[] black;
 	delete[] white;
 }
 
-void MainWindow::getCorrectData(unsigned char* src, int width, int height, unsigned char* dst)
+void MainWindow::getCorrectData(uchar* src, int width, int height, uchar* dst)
 {
 	for (int x = 0; x < width; x++)
 	{
@@ -379,11 +421,11 @@ void MainWindow::getCorrectData(unsigned char* src, int width, int height, unsig
 		{
 			total += src[y * width + x];
 		}
-		dst[x] = total / height;
+        dst[x] = static_cast<uchar>(total / height);
 	}
 }
 
-void MainWindow::saveCorrectData(const QString& filename, const char* black, const char* white, int length)
+void MainWindow::saveCorrectData(const QString& filename, const char* black, const char* white, size_t length)
 {
 	QFile file(filename);
 	file.open(QIODevice::WriteOnly);

@@ -4,4 +4,4 @@ SUBDIRS += \
     ImageProcess \  
     usbDevice \
     PythonZ-1200 \
-    tool
+    PythonTool

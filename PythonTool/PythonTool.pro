@@ -26,15 +26,44 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        previewdialog.cpp \
+        view.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+        previewdialog.h \
+        view.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+        previewdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    Makefile.Release
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/ -lopencv_core2413
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/ -lopencv_core2413d
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/ -lopencv_highgui2413
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/ -lopencv_highgui2413d
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/ -lopencv_imgproc2413
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/ -lopencv_imgproc2413d
+
+INCLUDEPATH += $$PWD/include
+DEPENDPATH += $$PWD/include
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../bin/release/ -lImageProcess
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../bin/debug/ -lImageProcess
+
+INCLUDEPATH += $$PWD/../ImageProcess
+DEPENDPATH += $$PWD/../ImageProcess
+
+RESOURCES += \
+    resources.qrc
