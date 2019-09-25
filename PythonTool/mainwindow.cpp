@@ -397,11 +397,11 @@ void MainWindow::on_btn_export_correct_clicked()
 
     if (ui->checkBox_white->isChecked())
     {
-        uchar half_aver_black = static_cast<uchar>(aver_black / 2);
+        uchar double_aver_black = static_cast<uchar>(min(aver_black * 2, 255));
 
         for (size_t i = 0; i < length; ++i)
-            if (white[i] < half_aver_white)
-                white[i] = black[i] = 0;
+            if (black[i] > double_aver_black)
+                white[i] = black[i] = 255;
     }
 
 	saveCorrectData("correctData.dat", reinterpret_cast<const char*>(black), reinterpret_cast<const char*>(white));
@@ -434,4 +434,16 @@ void MainWindow::saveCorrectData(const QString& filename, const char* black, con
 	out.writeBytes(black, length);
 	out.writeBytes(white, length);
 	file.close();
+}
+
+void MainWindow::on_checkBox_black_clicked(bool checked)
+{
+    if (checked)
+        ui->checkBox_white->setChecked(false);
+}
+
+void MainWindow::on_checkBox_white_clicked(bool checked)
+{
+    if (checked)
+        ui->checkBox_black->setChecked(false);
 }

@@ -6,6 +6,8 @@ PreviewDialog::PreviewDialog(QImage* img, QWidget *parent) :
     ui(new Ui::PreviewDialog)
 {
     ui->setupUi(this);
+    ui->view->setScroll(ui->horizontalScrollBar, ui->verticalScrollBar);
+    this->setWindowFlags(Qt::Dialog | Qt::WindowMaximizeButtonHint | Qt::WindowCloseButtonHint);
 
     if (img != nullptr)
         ui->view->addImage(img);

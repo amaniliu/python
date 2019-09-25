@@ -357,7 +357,10 @@ void MainWindow::showImage(unsigned char* buffer, long length)
     if (ui->check_montage->isChecked())
     {
 		ImageProcess newImg;
-		m_imageProcess->montage(offsets, newImg);
+		if (!m_imageProcess->montage(offsets, newImg))
+		{
+			return;
+		}
 		delete[] m_imageProcess->bits();
 
         if (newImg.bits() == nullptr)

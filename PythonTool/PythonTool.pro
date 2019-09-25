@@ -44,21 +44,6 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    Makefile.Release
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/ -lopencv_core2413
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/ -lopencv_core2413d
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/ -lopencv_highgui2413
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/ -lopencv_highgui2413d
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/ -lopencv_imgproc2413
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/ -lopencv_imgproc2413d
-
-INCLUDEPATH += $$PWD/include
-DEPENDPATH += $$PWD/include
-
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../bin/release/ -lImageProcess
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../bin/debug/ -lImageProcess
 

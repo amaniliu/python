@@ -117,8 +117,8 @@ public:
 	//图像拼接,生成拼接后的图像对象
 	//参数 offset [in]：拼接参数，类型为PixelOffset。详情请参见PixelOffset说明
 	//参数 count [in]：offset长度，也表示图像通道数量。默认值为6（6个通道）
-	//返回值：拼接后的图像对象
-	void montage(PixelOffset* offset, ImageProcess& newImage, int count = COUNTOF_CHANNEL);
+	//返回值：true为成功，false为失败
+	bool montage(PixelOffset* offset, ImageProcess& newImage, int count = COUNTOF_CHANNEL);
 
 	//图像轮廓提取，生成轮廓图像对象
     //参数 thre [in]:灰度图二值化阈值，默认值为100

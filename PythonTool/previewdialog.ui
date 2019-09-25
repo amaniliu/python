@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>PreviewDialog</class>
  <widget class="QDialog" name="PreviewDialog">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>预览(Preview)</string>
   </property>
   <property name="sizeGripEnabled">
    <bool>false</bool>
@@ -106,7 +109,28 @@
     </layout>
    </item>
    <item>
-    <widget class="View" name="view" native="true"/>
+    <layout class="QGridLayout" name="gridLayout" rowstretch="1,0" columnstretch="1,0">
+     <property name="spacing">
+      <number>2</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="View" name="view" native="true"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QScrollBar" name="verticalScrollBar">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QScrollBar" name="horizontalScrollBar">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

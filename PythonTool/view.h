@@ -5,9 +5,6 @@
 #include <QImage>
 #include <QPainter>
 #include <QScrollBar>
-#include <opencv2/opencv.hpp>
-
-using namespace cv;
 
 class View : public QWidget
 {
@@ -59,7 +56,7 @@ private:
 	QPainter m_painter;
 	bool m_b_pressed;
 	QPointF m_mouse_offset;
-	Rect_<double> m_roi;
+    QRectF m_roi;
 	QVector<QVector<QPointF>> m_polygons;
 	QVector<QVector<QPointF>> m_polygons_temp;
 };
