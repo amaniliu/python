@@ -330,6 +330,8 @@ void MainWindow::callback_reciveMsg(int msg)
 
 void MainWindow::showImage(unsigned char* buffer, long length)
 {
+	on_btn_stop_clicked();
+
     unsigned char* new_buffer = new unsigned char[static_cast<unsigned int>(length)];
     memcpy(new_buffer, buffer, static_cast<unsigned int>(length));
     int width = single_width() * count_of_channel();
