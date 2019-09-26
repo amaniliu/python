@@ -1,15 +1,14 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-08-06T11:44:11
+# Project created by QtCreator 2019-09-26T15:09:48
 #
 #-------------------------------------------------
 
-QT       -= core gui
+QT       += widgets
 
-TARGET = ImageProcess
+TARGET = Control
 TEMPLATE = lib
-
-DEFINES += IMAGEPROCESS_LIBRARY
+CONFIG += staticlib
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -23,24 +22,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        imageprocess.cpp
+        graphicsview.cpp \
+        view.cpp
 
 HEADERS += \
-        imageprocess.h
-
-RC_FILE = version.rc
-
-win32 {
-    contains(QT_ARCH, i386){
-        CONFIG(release, debug|release): LIBS += -L$$PWD/ -lopencv_core2413 -lopencv_highgui2413 -lopencv_imgproc2413
-        CONFIG(debug, debug|release): LIBS += -L$$PWD/ -lopencv_core2413d -lopencv_highgui2413d -lopencv_imgproc2413d
-    }
-    else{
-    }
-}
-
-INCLUDEPATH += $$PWD/include
-DEPENDPATH += $$PWD/include
+        graphicsview.h \
+        view.h
 
 CONFIG(release, debug|release): DESTDIR += ../bin/release
 CONFIG(debug, debug|release): DESTDIR += ../bin/debug
+
+FORMS += \
+    graphicsview.ui

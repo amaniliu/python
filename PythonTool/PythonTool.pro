@@ -24,17 +24,40 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
+CONFIG(release, debug|release): DESTDIR += ../bin/release
+CONFIG(debug, debug|release): DESTDIR += ../bin/debug
+
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        previewdialog.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+        previewdialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+        previewdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../bin/release/ -lImageProcess
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../bin/debug/ -lImageProcess
+
+INCLUDEPATH += $$PWD/../ImageProcess
+DEPENDPATH += $$PWD/../ImageProcess
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../bin/release/ -lControl
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../bin/debug/ -lControl
+
+INCLUDEPATH += $$PWD/../Control
+DEPENDPATH += $$PWD/../Control
+
+RESOURCES += \
+    resources.qrc
+
+RC_FILE = version.rc

@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>PythonZ-Tool v1.0.0.0</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -43,6 +43,14 @@
             <property name="text">
              <string>导入现有规则
 (Import Existing Rule)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="btn_preview">
+            <property name="text">
+             <string>全景预览
+(Preview)</string>
             </property>
            </widget>
           </item>
@@ -78,6 +86,9 @@
        </item>
        <item>
         <layout class="QGridLayout" name="gridLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
          <item row="3" column="0">
           <spacer name="horizontalSpacer">
            <property name="orientation">
@@ -96,12 +107,32 @@
            <property name="text">
             <string>《</string>
            </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/ll.png</normaloff>:/image/preview/resources/image/ll.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
           </widget>
          </item>
          <item row="5" column="3">
           <widget class="QToolButton" name="btn_l_dd">
            <property name="text">
             <string>︾</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/dd.png</normaloff>:/image/preview/resources/image/dd.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -110,12 +141,32 @@
            <property name="text">
             <string>&lt;</string>
            </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/l.png</normaloff>:/image/preview/resources/image/l.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
           </widget>
          </item>
          <item row="2" column="9">
           <widget class="QToolButton" name="btn_r_u">
            <property name="text">
             <string>︿</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/u.png</normaloff>:/image/preview/resources/image/u.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -124,12 +175,32 @@
            <property name="text">
             <string>﹀</string>
            </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/d.png</normaloff>:/image/preview/resources/image/d.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
           </widget>
          </item>
          <item row="3" column="7">
           <widget class="QToolButton" name="btn_r_ll">
            <property name="text">
             <string>《</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/ll.png</normaloff>:/image/preview/resources/image/ll.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -138,12 +209,32 @@
            <property name="text">
             <string>︾</string>
            </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/dd.png</normaloff>:/image/preview/resources/image/dd.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
           </widget>
          </item>
          <item row="3" column="10">
           <widget class="QToolButton" name="btn_r_r">
            <property name="text">
             <string>&gt;</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/r.png</normaloff>:/image/preview/resources/image/r.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -152,12 +243,32 @@
            <property name="text">
             <string>︽</string>
            </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/uu.png</normaloff>:/image/preview/resources/image/uu.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
           </widget>
          </item>
          <item row="3" column="8">
           <widget class="QToolButton" name="btn_r_l">
            <property name="text">
             <string>&lt;</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/l.png</normaloff>:/image/preview/resources/image/l.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -166,12 +277,32 @@
            <property name="text">
             <string>&gt;</string>
            </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/r.png</normaloff>:/image/preview/resources/image/r.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
           </widget>
          </item>
          <item row="3" column="5">
           <widget class="QToolButton" name="btn_l_rr">
            <property name="text">
             <string>》</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/rr.png</normaloff>:/image/preview/resources/image/rr.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -196,12 +327,32 @@
            <property name="text">
             <string>︿</string>
            </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/u.png</normaloff>:/image/preview/resources/image/u.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
           </widget>
          </item>
          <item row="1" column="3">
           <widget class="QToolButton" name="btn_l_uu">
            <property name="text">
             <string>︽</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/uu.png</normaloff>:/image/preview/resources/image/uu.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -210,12 +361,32 @@
            <property name="text">
             <string>﹀</string>
            </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/d.png</normaloff>:/image/preview/resources/image/d.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
           </widget>
          </item>
          <item row="3" column="11">
           <widget class="QToolButton" name="btn_r_rr">
            <property name="text">
             <string>》</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/image/preview/resources/image/rr.png</normaloff>:/image/preview/resources/image/rr.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -326,9 +497,16 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
-             <widget class="QCheckBox" name="checkBox">
+             <widget class="QCheckBox" name="checkBox_black">
               <property name="text">
                <string>消除黑边(Clear Black Borders)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_white">
+              <property name="text">
+               <string>消除白边(Clear White Borders)</string>
               </property>
              </widget>
             </item>
@@ -378,6 +556,8 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

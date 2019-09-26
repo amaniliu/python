@@ -435,66 +435,7 @@
     </layout>
    </item>
    <item>
-    <layout class="QGridLayout" name="gridLayout_2">
-     <property name="spacing">
-      <number>2</number>
-     </property>
-     <item row="1" column="0">
-      <widget class="QScrollBar" name="horizontalScrollBar">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QScrollBar" name="verticalScrollBar">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="View" name="view" native="true">
-       <property name="palette">
-        <palette>
-         <active>
-          <colorrole role="Mid">
-           <brush brushstyle="SolidPattern">
-            <color alpha="255">
-             <red>97</red>
-             <green>97</green>
-             <blue>97</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </active>
-         <inactive>
-          <colorrole role="Mid">
-           <brush brushstyle="SolidPattern">
-            <color alpha="255">
-             <red>97</red>
-             <green>97</green>
-             <blue>97</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </inactive>
-         <disabled>
-          <colorrole role="Mid">
-           <brush brushstyle="SolidPattern">
-            <color alpha="255">
-             <red>97</red>
-             <green>97</green>
-             <blue>97</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </disabled>
-        </palette>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <widget class="GraphicsView" name="view" native="true"/>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -512,9 +453,9 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>View</class>
+   <class>GraphicsView</class>
    <extends>QWidget</extends>
-   <header location="global">view.h</header>
+   <header location="global">../Control/graphicsview.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

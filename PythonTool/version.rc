@@ -1,10 +1,10 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"resource\\icon_python.ico"
+IDI_ICON1	ICON	DISCARDABLE	"resources\\icon_python.ico"
 
 VS_VERSION_INFO VERSIONINFO
-	FILEVERSION 3, 1, 0, 2
-	PRODUCTVERSION 3, 1, 0, 2
+	FILEVERSION 1,0,0,0
+	PRODUCTVERSION 1,0,0,0
 	FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
 	FILEFLAGS VS_FF_DEBUG
@@ -20,12 +20,12 @@ VS_VERSION_INFO VERSIONINFO
 			BLOCK "040904b0"
 			BEGIN
 				VALUE "CompanyName", "成都术有科技有限公司\0"
-				VALUE "FileDescription", "PythonZ-1200\0"
-				VALUE "FileVersion", "3, 1, 0, 2\0"
+				VALUE "FileDescription", "PythonZ校正工具\0"
+				VALUE "FileVersion", "1,0,0,0\0"
 				VALUE "LegalCopyright", "版权所有 (C) 成都术有科技有限公司\0"
-				VALUE "OriginalFilename", "PythonZ-1200.exe\0"
-				VALUE "ProductName", "PythonZ-1200\0"
-				VALUE "ProductVersion", "3, 1, 0, 2\0"
+				VALUE "OriginalFilename", "ImageProcess.dll\0"
+				VALUE "ProductName", "ImageProcess\0"
+				VALUE "ProductVersion", "1,0,0,0\0"
 			END
 		END
 		BLOCK "VarFileInfo"
