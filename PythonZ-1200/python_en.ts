@@ -6,7 +6,7 @@
     <message>
         <location filename="mainwindow.ui" line="14"/>
         <source>python</source>
-        <translation>Auto Image Reade v3.1.0.2</translation>
+        <translation>Auto Image Reade v3.1.2.2</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="22"/>

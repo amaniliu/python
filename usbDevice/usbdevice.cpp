@@ -123,7 +123,7 @@ void set_encode_divide(int divide)
 {
 	int div = max(2, min(divide, 8));
 	if (m_camera.get())
-		m_camera->set_option(Cam_Options::cam_divide, divide - 2);
+        m_camera->set_option(Cam_Options::cam_divide, div - 2);
 }
 
 bool encode_mode()
