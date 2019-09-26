@@ -27,13 +27,11 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-        previewdialog.cpp \
-        view.cpp
+        previewdialog.cpp
 
 HEADERS += \
         mainwindow.h \
-        previewdialog.h \
-        view.h
+        previewdialog.h
 
 FORMS += \
         mainwindow.ui \
@@ -49,6 +47,12 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../bin/debug/ -lIma
 
 INCLUDEPATH += $$PWD/../ImageProcess
 DEPENDPATH += $$PWD/../ImageProcess
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../bin/release/ -lControl
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../bin/debug/ -lControl
+
+INCLUDEPATH += $$PWD/../Control
+DEPENDPATH += $$PWD/../Control
 
 RESOURCES += \
     resources.qrc

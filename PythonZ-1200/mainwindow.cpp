@@ -95,9 +95,8 @@ void MainWindow::on_btn_save_clicked()
     }
     m_image->save(filename);
 #else
-
     QImage img("..\\bin\\debug\\1.jpg");
-    showImage(img.bits(), img.byteCount());
+    showImage(img.bits(), img.sizeInBytes());
 #endif
 }
 
@@ -212,7 +211,6 @@ void MainWindow::initUsbDevice()
 
 void MainWindow::initUI()
 {
-	ui->view->setScroll(ui->horizontalScrollBar, ui->verticalScrollBar);
     connect(ui->spin_plan_h, SIGNAL(editingFinished()), this, SLOT(on_spin_h_edit_finished()));
     connect(ui->spin_actual_h, SIGNAL(editingFinished()), this, SLOT(on_spin_h_edit_finished()));
     connect(ui->spin_plan_v, SIGNAL(editingFinished()), this, SLOT(on_spin_v_edit_finished()));
@@ -334,7 +332,7 @@ void MainWindow::showImage(unsigned char* buffer, long length)
 
     unsigned char* new_buffer = new unsigned char[static_cast<unsigned int>(length)];
     memcpy(new_buffer, buffer, static_cast<unsigned int>(length));
-    int width = single_width() * count_of_channel();
+	int width = 7632;//single_width() * count_of_channel();
     int height = length / width;
     if (m_image)
     {

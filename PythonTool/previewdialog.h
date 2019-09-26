@@ -16,15 +16,6 @@ public:
     explicit PreviewDialog(QImage* img, QWidget *parent = nullptr);
     ~PreviewDialog();
 
-private slots:
-    void on_btn_zoomin_clicked();
-
-    void on_btn_zoomout_clicked();
-
-    void on_btn_zoomorign_clicked();
-
-    void on_btn_zoomfit_clicked();
-
 private:
     Ui::PreviewDialog *ui;
 };

@@ -6,34 +6,18 @@ PreviewDialog::PreviewDialog(QImage* img, QWidget *parent) :
     ui(new Ui::PreviewDialog)
 {
     ui->setupUi(this);
-    ui->view->setScroll(ui->horizontalScrollBar, ui->verticalScrollBar);
     this->setWindowFlags(Qt::Dialog | Qt::WindowMaximizeButtonHint | Qt::WindowCloseButtonHint);
 
     if (img != nullptr)
         ui->view->addImage(img);
+
+    connect(ui->btn_zoomin, SIGNAL(clicked()), ui->view, SLOT(zoomIn()));
+    connect(ui->btn_zoomout, SIGNAL(clicked()), ui->view, SLOT(zoomOut()));
+    connect(ui->btn_zoomorign, SIGNAL(clicked()), ui->view, SLOT(zoomOrigin()));
+    connect(ui->btn_zoomfit, SIGNAL(clicked()), ui->view, SLOT(zoomAdjust()));
 }
 
 PreviewDialog::~PreviewDialog()
 {
     delete ui;
-}
-
-void PreviewDialog::on_btn_zoomin_clicked()
-{
-    ui->view->zoomIn();
-}
-
-void PreviewDialog::on_btn_zoomout_clicked()
-{
-    ui->view->zoomOut();
-}
-
-void PreviewDialog::on_btn_zoomorign_clicked()
-{
-    ui->view->zoomOrigin();
-}
-
-void PreviewDialog::on_btn_zoomfit_clicked()
-{
-    ui->view->zoomAdjust();
 }
