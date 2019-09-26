@@ -1,6 +1,6 @@
 // Microsoft Visual C++ generated resource script.
 //
-#include <windows.h>
+#include <Windows.h>
 
 VS_VERSION_INFO VERSIONINFO
  FILEVERSION 1, 0, 0, 0
@@ -33,4 +33,3 @@ BEGIN
         VALUE "Translation", 0x804, 1200
     END
 END
-
