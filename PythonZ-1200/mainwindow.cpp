@@ -42,6 +42,11 @@ MainWindow::MainWindow(QWidget *parent) :
     initUsbDevice();
     getCorrectData();
 	getMontageData();
+
+	connect(ui->btn_zoomIn, SIGNAL(clicked()), ui->view, SLOT(zoomIn()));
+	connect(ui->btn_zoomOut, SIGNAL(clicked()), ui->view, SLOT(zoomOut()));
+	connect(ui->btn_original, SIGNAL(clicked()), ui->view, SLOT(zoomOrigin()));
+	connect(ui->btn_zoomIn, SIGNAL(clicked()), ui->view, SLOT(zoomAdjust()));
 }
 
 MainWindow::~MainWindow()
@@ -81,10 +86,8 @@ void MainWindow::on_btn_stop_clicked()
 void MainWindow::on_btn_save_clicked()
 {
 #if 1
-    if (!m_image)
-    {
-        return;
-    }
+	if (m_image == nullptr) return;
+
     QString filename = QFileDialog::getSaveFileName(this, tr("Save Image"), "", tr("BITMAP (*.bmp);;JPEG(*.jpg)"));
     if (m_image->format() == QImage::Format_Indexed8)
     {
@@ -97,28 +100,8 @@ void MainWindow::on_btn_save_clicked()
 #else
 
     QImage img("..\\bin\\debug\\1.jpg");
-    showImage(img.bits(), img.byteCount());
+    showImage(img.bits(), img.sizeInBytes());
 #endif
-}
-
-void MainWindow::on_btn_zoomIn_clicked()
-{
-	ui->view->zoomIn();
-}
-
-void MainWindow::on_btn_zoomOut_clicked()
-{
-	ui->view->zoomOut();
-}
-
-void MainWindow::on_btn_original_clicked()
-{
-	ui->view->zoomOrigin();
-}
-
-void MainWindow::on_btn_adjust_clicked()
-{
-	ui->view->zoomAdjust();
 }
 
 void MainWindow::on_btn_dir_clicked()
@@ -214,7 +197,6 @@ void MainWindow::initUI()
 {
 	QPalette palette = this->palette();
 	palette.setColor(QPalette::Background, QColor(60, 60, 60));
-	ui->view->setScroll(ui->horizontalScrollBar, ui->verticalScrollBar);
 	this->setPalette(palette);
     connect(ui->spin_plan_h, SIGNAL(editingFinished()), this, SLOT(on_spin_h_edit_finished()));
     connect(ui->spin_actual_h, SIGNAL(editingFinished()), this, SLOT(on_spin_h_edit_finished()));

@@ -3,8 +3,8 @@
 IDI_ICON1	ICON	DISCARDABLE	"resource\\icon_hanbang.ico"
 
 VS_VERSION_INFO VERSIONINFO
-	FILEVERSION 3,1,0,4
-	PRODUCTVERSION 3, 1, 0, 4
+	FILEVERSION 3,1,1,2
+	PRODUCTVERSION 3, 1, 1, 2
 	FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
 	FILEFLAGS VS_FF_DEBUG
@@ -21,11 +21,11 @@ VS_VERSION_INFO VERSIONINFO
 			BEGIN
 				VALUE "CompanyName", "深圳市汉邦机电有限公司\0"
 				VALUE "FileDescription", "汉邦一键抄版机\0"
-				VALUE "FileVersion", "3,1,0,4\0"
+				VALUE "FileVersion", "3,1,1,2\0"
 				VALUE "LegalCopyright", "版权所有 (C) 深圳市汉邦机电有限公司\0"
 				VALUE "OriginalFilename", "PythonZ-1200.exe\0"
 				VALUE "ProductName", "汉邦一键抄版机\0"
-				VALUE "ProductVersion", "3,1,0,4\0"
+				VALUE "ProductVersion", "3,1,1,2\0"
 			END
 		END
 		BLOCK "VarFileInfo"
