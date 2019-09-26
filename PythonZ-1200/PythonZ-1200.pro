@@ -27,13 +27,10 @@ CONFIG += c++11
 SOURCES += \
         assistant.cpp \
         main.cpp \
-        mainwindow.cpp \
-        view.cpp
-
+        mainwindow.cpp
 HEADERS += \
         assistant.h \
-        mainwindow.h \
-        view.h
+        mainwindow.h
 
 FORMS += \
         mainwindow.ui
@@ -67,8 +64,8 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../bin/debug/ -lusb
 INCLUDEPATH += $$PWD/../usbDevice
 DEPENDPATH += $$PWD/../usbDevice
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/ -lopencv_core2413 -lopencv_highgui2413 -lopencv_imgproc2413
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/ -lopencv_core2413d -lopencv_highgui2413d -lopencv_imgproc2413d
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../bin/release/ -lControl
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../bin/debug/ -lControl
 
-INCLUDEPATH += $$PWD/include
-DEPENDPATH += $$PWD/include
+INCLUDEPATH += $$PWD/../Control
+DEPENDPATH += $$PWD/../Control

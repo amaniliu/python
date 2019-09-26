@@ -24,14 +24,6 @@ private slots:
 
     void on_btn_save_clicked();
 
-    void on_btn_zoomIn_clicked();
-
-    void on_btn_zoomOut_clicked();
-
-    void on_btn_adjust_clicked();
-
-    void on_btn_original_clicked();
-
     void on_hslider_optimize_valueChanged(int value);
 
     void on_btn_dir_clicked();
@@ -44,7 +36,7 @@ private slots:
 
     void on_check_contour_toggled(bool checked);
 
-	void showImage(unsigned char* buffer, long length);
+    void showImage(uchar* buffer, long length);
 
 	void reciveMsg(int msg);
 
@@ -61,7 +53,7 @@ private:
 
 	void getMontageData();
 
-    static void callback_getPicInfo(unsigned char* buffer, long length);
+    static void callback_getPicInfo(uchar* buffer, long length);
 
     static void callback_reciveMsg(int msg);
 

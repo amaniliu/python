@@ -159,7 +159,7 @@ bool ImageProcess::saveImage(const char* filename)
 	return true;
 }
 
-void ImageProcess::montage(PixelOffset* offset, ImageProcess& newImage, int count)
+bool ImageProcess::montage(PixelOffset* offset, ImageProcess& newImage, int count)
 {
 	int newWidth = m_src_width;
 	for (int i = 0; i < count; i++)
@@ -178,11 +178,13 @@ void ImageProcess::montage(PixelOffset* offset, ImageProcess& newImage, int coun
 		}
 	}
 	newHeight -= (max * 2);
-	newImage.setSize(newWidth, newHeight);
-	if (newHeight < 0)
+
+	if (newHeight <= 0)
 	{
-		return;
+		return false;
 	}
+
+	newImage.setSize(newWidth, newHeight);
 
     Mat src_(m_src_height, m_src_width, CV_8UC1, bits());
     Mat dst_(newHeight, lineBits, CV_8UC1, newImage.bits());
@@ -204,6 +206,7 @@ void ImageProcess::montage(PixelOffset* offset, ImageProcess& newImage, int coun
 	newImage.setHeight(newHeight);
 	newImage.setBiXPelsPerMeter(m_biXPelsPerMeter);
 	newImage.setBiXPelsPerMeter(m_biYPelsPerMeter);
+	return true;
 }
 
 void findContours(const Mat& src, vector<vector<Point>>& contours, vector<Vec4i>& hierarchy,

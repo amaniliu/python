@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/image/preview">
+        <file>resources/image/d.png</file>
+        <file>resources/image/dd.png</file>
+        <file>resources/image/l.png</file>
+        <file>resources/image/ll.png</file>
+        <file>resources/image/r.png</file>
+        <file>resources/image/rr.png</file>
+        <file>resources/image/u.png</file>
+        <file>resources/image/uu.png</file>
+        <file>resources/image/zoom_1.png</file>
+        <file>resources/image/zoom_fit.png</file>
+        <file>resources/image/zoom_in.png</file>
+        <file>resources/image/zoom_out.png</file>
+    </qresource>
+</RCC>
