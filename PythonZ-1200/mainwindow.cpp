@@ -42,6 +42,11 @@ MainWindow::MainWindow(QWidget *parent) :
     initUsbDevice();
     getCorrectData();
 	getMontageData();
+
+    connect(ui->btn_zoomIn, SIGNAL(clicked()), ui->view, SLOT(zoomIn));
+    connect(ui->btn_zoomOut, SIGNAL(clicked()), ui->view, SLOT(zoomOut));
+    connect(ui->btn_original, SIGNAL(clicked()), ui->view, SLOT(zoomOrigin));
+    connect(ui->btn_adjust, SIGNAL(clicked()), ui->view, SLOT(zoomAdjust));
 }
 
 MainWindow::~MainWindow()
@@ -98,26 +103,6 @@ void MainWindow::on_btn_save_clicked()
     QImage img("..\\bin\\debug\\1.jpg");
     showImage(img.bits(), img.sizeInBytes());
 #endif
-}
-
-void MainWindow::on_btn_zoomIn_clicked()
-{
-	ui->view->zoomIn();
-}
-
-void MainWindow::on_btn_zoomOut_clicked()
-{
-	ui->view->zoomOut();
-}
-
-void MainWindow::on_btn_original_clicked()
-{
-	ui->view->zoomOrigin();
-}
-
-void MainWindow::on_btn_adjust_clicked()
-{
-	ui->view->zoomAdjust();
 }
 
 void MainWindow::on_btn_dir_clicked()
@@ -216,7 +201,7 @@ void MainWindow::initUI()
     connect(ui->spin_plan_v, SIGNAL(editingFinished()), this, SLOT(on_spin_v_edit_finished()));
     connect(ui->spin_actual_v, SIGNAL(editingFinished()), this, SLOT(on_spin_v_edit_finished()));
 
-    connect(&m_assistant, SIGNAL(sendpic(unsigned char*, long)), this, SLOT(showImage(unsigned char*, long)));
+    connect(&m_assistant, SIGNAL(sendpic(uchar*, long)), this, SLOT(showImage(uchar*, long)));
     connect(&m_assistant, SIGNAL(sendmsg(int)), this, SLOT(reciveMsg(int)));
 }
 
@@ -285,8 +270,8 @@ void MainWindow::getCorrectData()
         return;
     }
 
-    unsigned char* m_buffer_black = new unsigned char[SINGLE_WIDTH * COUNTOF_CHANNEL];
-    unsigned char* m_buffer_white = new unsigned char[SINGLE_WIDTH * COUNTOF_CHANNEL];
+    uchar* m_buffer_black = new uchar[SINGLE_WIDTH * COUNTOF_CHANNEL];
+    uchar* m_buffer_white = new uchar[SINGLE_WIDTH * COUNTOF_CHANNEL];
 
     f.read(reinterpret_cast<char*>(m_buffer_black), SINGLE_WIDTH * COUNTOF_CHANNEL);
     f.read(reinterpret_cast<char*>(m_buffer_white), SINGLE_WIDTH * COUNTOF_CHANNEL);
@@ -316,7 +301,7 @@ void MainWindow::getMontageData()
 	}
 }
 
-void MainWindow::callback_getPicInfo(unsigned char* buffer, long length)
+void MainWindow::callback_getPicInfo(uchar* buffer, long length)
 {
     m_assistant.sendPicInfo(buffer, length);
 }
@@ -326,11 +311,11 @@ void MainWindow::callback_reciveMsg(int msg)
     m_assistant.sendMessage(msg);
 }
 
-void MainWindow::showImage(unsigned char* buffer, long length)
+void MainWindow::showImage(uchar* buffer, long length)
 {
 	on_btn_stop_clicked();
 
-    unsigned char* new_buffer = new unsigned char[static_cast<unsigned int>(length)];
+    uchar* new_buffer = new uchar[static_cast<unsigned int>(length)];
     memcpy(new_buffer, buffer, static_cast<unsigned int>(length));
 	int width = 7632;//single_width() * count_of_channel();
     int height = length / width;
@@ -357,6 +342,7 @@ void MainWindow::showImage(unsigned char* buffer, long length)
 		ImageProcess newImg;
 		if (!m_imageProcess->montage(offsets, newImg))
 		{
+            QMessageBox::warning(this, tr("Warning"), tr("Join failly!"));
 			return;
 		}
 		delete[] m_imageProcess->bits();
@@ -370,7 +356,7 @@ void MainWindow::showImage(unsigned char* buffer, long length)
 		ImageProcess zoomImage;
 		newImg.zoom(ui->spin_scale_h->value(), ui->spin_scale_v->value(), zoomImage);
 
-		unsigned char* buffer = new unsigned char[static_cast<unsigned int>(zoomImage.width() * zoomImage.height())];
+        uchar* buffer = new uchar[static_cast<unsigned int>(zoomImage.width() * zoomImage.height())];
 		memcpy(buffer, zoomImage.bits(), static_cast<unsigned int>(zoomImage.width() * zoomImage.height()));
         m_image = new QImage(buffer, zoomImage.width(), zoomImage.height(), QImage::Format_Indexed8);
 
@@ -399,7 +385,7 @@ void MainWindow::showImage(unsigned char* buffer, long length)
 		ImageProcess zoomImg;
 		m_imageProcess->zoom(ui->spin_scale_h->value(), ui->spin_scale_v->value(), zoomImg);
 		delete[] m_imageProcess->bits();
-        unsigned char* buffer = new unsigned char[static_cast<size_t>(zoomImg.width() * zoomImg.height())];
+        uchar* buffer = new uchar[static_cast<size_t>(zoomImg.width() * zoomImg.height())];
         memcpy(buffer, zoomImg.bits(), static_cast<size_t>(zoomImg.width() * zoomImg.height()));
         m_image = new QImage(buffer, zoomImg.width(), zoomImg.height(), QImage::Format_Indexed8);
         m_image->setDotsPerMeterX(zoomImg.getBiXPelsPerMeter());

@@ -30,11 +30,6 @@ HEADERS += \
 
 RC_FILE = version.rc
 
-unix {
-    target.path = /usr/lib
-    INSTALLS += target
-}
-
 win32 {
     CONFIG(release, debug|release): LIBS += -L$$PWD/ -lopencv_core2413 -lopencv_highgui2413 -lopencv_imgproc2413
     CONFIG(debug, debug|release): LIBS += -L$$PWD/ -lopencv_core2413d -lopencv_highgui2413d -lopencv_imgproc2413d
@@ -45,10 +40,3 @@ DEPENDPATH += $$PWD/include
 
 CONFIG(release, debug|release): DESTDIR += ../bin/release
 CONFIG(debug, debug|release): DESTDIR += ../bin/debug
-
-#VERSION = v2.0.0.1
-QMAKE_TARGET_PRODUCT
-QMAKE_TARGET_PRODUCT = "ImageProcess"
-QMAKE_TARGET_COMPANY = "成都术有科技有限公司"
-QMAKE_TARGET_DESCRIPTION = "文件描述"
-QMAKE_TARGET_COPYRIGHT = "版权"

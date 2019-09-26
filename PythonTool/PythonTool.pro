@@ -24,6 +24,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
+CONFIG(release, debug|release): DESTDIR += ../bin/release
+CONFIG(debug, debug|release): DESTDIR += ../bin/debug
+
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
@@ -56,3 +59,5 @@ DEPENDPATH += $$PWD/../Control
 
 RESOURCES += \
     resources.qrc
+
+RC_FILE = version.rc
